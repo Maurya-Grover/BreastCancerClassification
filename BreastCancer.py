@@ -98,18 +98,11 @@ sns.heatmap(df.corr(), annot=True)
 
 # splitting the dataset
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=5)
+
+# normalising data
 std_sc = StandardScaler()
 x_train = std_sc.fit_transform(x_train)
 x_test = std_sc.transform(x_test)
-
-"""min_train = x_train.min()
-range_train = (x_train - min_train).max()
-x_train_scaled = (x_train - min_train) / range_train
-min_test = x_test.min()
-range_test = (x_test - min_test).max()
-x_test_scaled = (x_test - min_test) / range_test"""
-# x_train = rescaling(x_train)
-# x_test = rescaling(x_test)
 
 # training the model
 classifier = SVC()
